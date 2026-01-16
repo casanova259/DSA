@@ -50,3 +50,27 @@ int main()
 
     return 0;
 }
+
+/*class Solution {
+public:
+    ListNode* removeElements(ListNode* head, int val) {
+        if(!head) return head;
+
+        //now create the ans node
+        ListNode* ans=new ListNode(-1,head);
+        ListNode* dummy=ans;
+
+
+        while(dummy){
+            while(dummy->next!=nullptr&&dummy->next->val==val){
+               dummy->next=dummy->next->next;
+            }
+            dummy=dummy->next;
+        }
+
+        ListNode* res=ans->next;
+        delete ans;
+        return res;
+    }
+};*/
+//REVISION-16jan 2026

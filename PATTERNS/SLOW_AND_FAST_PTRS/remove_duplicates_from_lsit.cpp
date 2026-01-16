@@ -8,14 +8,17 @@ struct ListNode
     ListNode(int x) : val(x), next(NULL) {}
 };
 
-
-class Solution {
+class Solution
+{
 public:
-    ListNode* deleteDuplicates(ListNode* head) {
-        ListNode* prev = head;
+    ListNode *deleteDuplicates(ListNode *head)
+    {
+        ListNode *prev = head;
 
-        while (prev != nullptr) {
-            while (prev->next != nullptr && prev->val == prev->next->val) {
+        while (prev != nullptr)
+        {
+            while (prev->next != nullptr && prev->val == prev->next->val)
+            {
                 prev->next = prev->next->next;
             }
             prev = prev->next;
@@ -25,7 +28,22 @@ public:
 };
 int main()
 {
-//created by manik sharma
+    // created by manik sharma
 
-return 0 ;
+    return 0;
 }
+// class Solution {
+// public:
+//     ListNode* deleteDuplicates(ListNode* head) {
+//         ListNode* prev = head;
+
+//         while (prev) {
+//             while (prev->next != nullptr&& prev->val == prev->next->val) {
+//                 prev->next = prev->next->next;
+//             }
+//             prev=prev->next;
+//         }
+
+//         return head ;
+//     }
+// }; REVISIONN ON 16 jan
