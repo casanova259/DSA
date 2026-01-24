@@ -21,6 +21,7 @@ The goal of this repository is to:
 * Improve **coding logic and efficiency**
 * Create revision-friendly **notes for future reference**
 * Stay **consistent** by pushing solutions daily
+* build And Write Effective solutions
 
 This repo is not just about solutions — it’s about **learning how to think**.
 
