@@ -57,6 +57,39 @@ public:
         return result;
     }
 };
+
+class OPTIMAL {
+public:
+
+    int CountAtMost(vector<int>& nums, int k){
+        int left=0,right=0;
+        //initialise the ptrs for sliding window 
+        int result=0;
+        //res to return 
+
+        //traverse the array 
+        for(right=0;right<nums.size();right++){
+
+            //if the curr num is odd reduce k
+            if(nums[right]&1) k--;
+
+            //shrink the window until k is valid
+            while(k<0){
+                if(nums[left]&1) k++;
+                left++;
+            }
+
+            //Add Valid Subarrays ending at right
+            result+=(right-left+1);
+        }
+
+        return result;
+        
+    }
+    int numberOfSubarrays(vector<int>& nums, int k) {
+        return CountAtMost(nums,k)-CountAtMost(nums,k-1);
+    }
+};
 int main()
 {
 //created by manik sharma
