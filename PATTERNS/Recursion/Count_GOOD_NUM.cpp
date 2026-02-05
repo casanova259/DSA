@@ -35,6 +35,7 @@ public:
     }
     int countGoodNumbers(long long n) { return solution(0, n); }
 };
+
 int main()
 {
 //created by manik sharma
