@@ -32,6 +32,40 @@ public:
         return ans;
     }
 };
+
+class REVSOL112 {
+public:
+    void solve(vector<int>& candidates, int target, vector<vector<int>>& ans,
+               int index, vector<int> ds) {
+
+        // Base Case
+        if (index == candidates.size()) {
+            if (target == 0) {
+                ans.push_back(ds);
+            }
+            return;
+        }
+
+        // Pick Choice
+        if (candidates[index] <= target) {
+            ds.push_back(candidates[index]);
+            solve(candidates, target - candidates[index], ans, index , ds);
+            ds.pop_back();
+        }
+
+        // Not Pick
+        solve(candidates, target, ans, index + 1, ds);
+    }
+    vector<vector<int>> combinationSum(vector<int>& candidates, int target) {
+        vector<vector<int>> ans;
+        int index = 0;
+        vector<int> ds;
+
+        solve(candidates, target, ans, index, ds);
+
+        return ans;
+    }
+};
 int main()
 {
     // created by manik sharma
