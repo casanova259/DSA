@@ -33,30 +33,76 @@ public:
     }
 };
 
-class REVSOL112 {
+class REVSOL112
+{
 public:
-    void solve(vector<int>& candidates, int target, vector<vector<int>>& ans,
-               int index, vector<int> ds) {
+    void solve(vector<int> &candidates, int target, vector<vector<int>> &ans,
+               int index, vector<int> ds)
+    {
 
         // Base Case
-        if (index == candidates.size()) {
-            if (target == 0) {
+        if (index == candidates.size())
+        {
+            if (target == 0)
+            {
                 ans.push_back(ds);
             }
             return;
         }
 
         // Pick Choice
-        if (candidates[index] <= target) {
+        if (candidates[index] <= target)
+        {
             ds.push_back(candidates[index]);
-            solve(candidates, target - candidates[index], ans, index , ds);
+            solve(candidates, target - candidates[index], ans, index, ds);
             ds.pop_back();
         }
 
         // Not Pick
         solve(candidates, target, ans, index + 1, ds);
     }
-    vector<vector<int>> combinationSum(vector<int>& candidates, int target) {
+    vector<vector<int>> combinationSum(vector<int> &candidates, int target)
+    {
+        vector<vector<int>> ans;
+        int index = 0;
+        vector<int> ds;
+
+        solve(candidates, target, ans, index, ds);
+
+        return ans;
+    }
+};
+
+class Solution
+{
+public:
+    void solve(vector<int> &candidates, int target, vector<vector<int>> &ans,
+               int index, vector<int> ds)
+    {
+
+        // Base Case
+        if (index == candidates.size())
+        {
+            if (target == 0)
+            {
+                ans.push_back(ds);
+            }
+            return;
+        }
+
+        // Pick Choice
+        if (candidates[index] <= target)
+        {
+            ds.push_back(candidates[index]);
+            solve(candidates, target - candidates[index], ans, index, ds);
+            ds.pop_back();
+        }
+
+        // Not Pick
+        solve(candidates, target, ans, index + 1, ds);
+    }
+    vector<vector<int>> combinationSum(vector<int> &candidates, int target)
+    {
         vector<vector<int>> ans;
         int index = 0;
         vector<int> ds;
@@ -67,6 +113,7 @@ public:
     }
 };
 int main()
+
 {
     // created by manik sharma
 
