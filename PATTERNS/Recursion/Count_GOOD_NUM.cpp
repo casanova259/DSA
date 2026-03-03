@@ -35,7 +35,37 @@ public:
     }
     int countGoodNumbers(long long n) { return solution(0, n); }
 };
-
+class Solution {
+public:
+    const int MOD = 1e9 + 7;
+    
+    // Fast exponentiation: Calculate (base^exp) % MOD
+    long long power(long long base, long long exp) {
+        long long result = 1;
+        base %= MOD;
+        
+        while (exp > 0) {
+            if (exp % 2 == 1) {
+                result = (result * base) % MOD;
+            }
+            base = (base * base) % MOD;
+            exp /= 2;
+        }
+        
+        return result;
+    }
+    
+    int countGoodNumbers(long long n) {
+        // Count even and odd positions
+        long long evenPositions = (n + 1) / 2;  // Positions: 0, 2, 4, ...
+        long long oddPositions = n / 2;          // Positions: 1, 3, 5, ...
+        
+        // Calculate 5^evenPositions * 4^oddPositions
+        long long result = (power(5, evenPositions) * power(4, oddPositions)) % MOD;
+        
+        return result;
+    }
+};
 int main()
 {
 //created by manik sharma
