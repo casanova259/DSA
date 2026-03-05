@@ -108,3 +108,11 @@ int main()
 
     return 0;
 }
+// {[...Array(10)].map((_, indx) => (
+//   <motion.div
+//     key={indx}
+//     className="h-8 w-1.5 rounded-full bg-white"
+//     animate={{ rotateX: [0, 360], scaleY: [1, 0.3, 1], opacity: [1, 0.3, 1] }}
+//     transition={{ duration: 2, repeat: Infinity, ease: "easeInOut", delay: indx * 0.15 }}
+//   />
+// ))}
