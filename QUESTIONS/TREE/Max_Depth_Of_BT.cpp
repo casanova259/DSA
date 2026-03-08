@@ -72,6 +72,16 @@ public:
     int maxDepth(TreeNode *root) { return solve(root); }
 };
 
+class DFS
+{
+    public:
+        int maxDepth(TreeNode* root) {
+        if(root==NULL) return 0;
+
+        return 1+max(maxDepth(root->left),maxDepth(root->right));
+    }
+        
+};
 int main()
 {
     // created by manik sharma
