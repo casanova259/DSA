@@ -15,9 +15,9 @@ public:
     Node(int x, Node *left, Node *right) : data(x), left(left), right(right) {}
 };
 
- 
+
 class Solution {
-  public:
+public:
     int findFloor(Node* root, int x) {
         // code here
         int floor=-1;
