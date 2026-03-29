@@ -16,17 +16,24 @@ struct TreeNode
 
 
 class Solution {
-public:
-    TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
-        if(root==NULL) return NULL;
+public: 
+    TreeNode* insertBST(TreeNode* root,int key)
+    {
+        if(root==NULL) return new TreeNode(key);
 
-        if(p->val<root->val&&q->val<root->val)
+        if(root->val>key)
+            root->left=insertBST(root->left,key);
+        else if(root->val<key)
+            root->right=insertBST(root->right,key);
+
+        return root;
+    }
+    TreeNode* bstFromPreorder(vector<int>& preorder) {
+        TreeNode* root=nullptr;
+
+        for(int key:preorder)
         {
-            return lowestCommonAncestor(root->left,p,q);
-        }
-        if(p->val>root->val&&q->val>root->val)
-        {
-            return lowestCommonAncestor(root->right,p,q);
+            root=insertBST(root,key);
         }
 
         return root;
