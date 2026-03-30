@@ -40,6 +40,28 @@ public:
     }
 };
 
+
+class Solution {
+public:
+    bool solve(TreeNode* root, long long int ub, long long int lb) {
+
+        if (root == NULL)
+            return true;
+
+        if (root->val >= ub || root->val <= lb)
+            return false;
+
+        return solve(root->left, root->val, lb) &&
+            solve(root->right, ub, root->val);
+    }
+    bool isValidBST(TreeNode* root) {
+        long long int ub = 4294967296;
+        long long int lb = -4294967296;
+
+        return solve(root, ub, lb);
+    }
+};
+
 int main()
 {
     // created by manik sharma
