@@ -1,4 +1,13 @@
 #include <bits/stdc++.h> 
+#include <iostream>
+#include <vector>
+using namespace std;
+int main()
+{
+//created by manik sharma
+
+return 0 ;
+}
 int getLongestSubarray(vector<int>& nums, int k){
     // Write your code here
 
