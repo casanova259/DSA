@@ -1,24 +1,26 @@
 #include <iostream>
 #include <vector>
 using namespace std;
-class Solution {
+class Solution
+{
 public:
-    vector<vector<int>> subsets(vector<int>& nums) {
-        int n=nums.size();
+    vector<vector<int>> subsets(vector<int> &nums)
+    {
+        int n = nums.size();
 
         vector<vector<int>> ans;
 
-        int total=1<<n;
+        int total = 1 << n;
 
-        for(int mask=0;mask<total;mask++)
+        for (int mask = 0; mask < total; mask++)
         {
             vector<int> subset;
 
-            for(int j=0;j<n;j++)
+            for (int j = 0; j < n; j++)
             {
-                if(mask&(1<<j))
+                if (mask & (1 << j))
                 {
-                    //include nums[j]
+                    // include nums[j]
                     subset.push_back(nums[j]);
                 }
             }
@@ -31,7 +33,7 @@ public:
 };
 int main()
 {
-//created by manik sharma
+    // created by manik sharma
 
-return 0 ;
+    return 0;
 }
